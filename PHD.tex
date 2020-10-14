@@ -1,0 +1,151 @@
+\documentclass[11pt,twoside,openright]{report}
+\usepackage[a4paper,width=155mm, inner=25mm, top=30mm,bottom=40mm, marginparsep=0mm]{geometry}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage{longtable}
+\usepackage[czech]{babel} 
+\usepackage{graphicx}
+\usepackage{emptypage} % maže číslování na prázdných stranách
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{formatting,amsfonts,amsmath,amssymb}
+\usepackage{booktabs,mathtools}
+\usepackage{lipsum,url}
+\usepackage[unicode]{hyperref}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{float}
+\usepackage{mwe}
+\usepackage{appendix}
+\usepackage{pdfpages}
+\usepackage{etoolbox}
+\usepackage[nottoc]{tocbibind}
+\usepackage{tikz}
+%\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{csquotes}
+\usetikzlibrary{shapes, arrows.meta}
+\usetikzlibrary{backgrounds,calc}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\BeforeBeginEnvironment{appendices}{\gdef\thechapter{\ }}
+\AtBeginEnvironment{appendices}{\renewcommand\thesection{\Alph{section}}}
+
+% \cmidrule have problem with Czech
+\usepackage{regexpatch}
+\makeatletter
+% Change the `-` delimiter to an active character
+\xpatchparametertext\@@@cmidrule{-}{\cA-}{}{}
+\xpatchparametertext\@cline{-}{\cA-}{}{}
+\makeatother
+
+%\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{fancybox}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmus}
+\makeatother
+\pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{%
+%  \markboth{\MakeUppercase{\thechapter\ \quad  #1}}{}% 
+%}
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\MakeUppercase{#1}}{}% 
+}
+\fancyfoot{}{}{}
+\fancyhead[LO,LE]{}
+\fancyhead[RO]{\leftmark}
+\fancyhead[RE]{}
+\fancyfoot[RO]{\vspace*{0.8\baselineskip}\thepage}
+\fancyfoot[LE]{\vspace*{0.8\baselineskip}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+\fancyhead[RO]{}
+\fancyhead[LO,LE]{}
+\fancyfoot[RO]{\vspace*{0.8\baselineskip}\thepage}
+\fancyfoot[LE]{\vspace*{0.8\baselineskip}\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+\makeatletter
+\renewcommand\@dotsep{300}   % default value 4.5
+\makeatother
+
+\linespread{1.25}
+\let\cleardoublepage=\clearpage
+\begin{document}
+\pagenumbering{gobble}
+
+\input{VNITRNOSTI/main_info}
+% TAK AT TO JDE OD RUKY
+
+\input{VNITRNOSTI/uvod}
+
+\input{VNITRNOSTI/ese}
+\input{VNITRNOSTI/vysledky}
+\input{VNITRNOSTI/zaver}
+
+\renewcommand{\bibname}{Publikace autora}
+\begin{thebibliography}{A}
+\end{thebibliography}
+
+\begin{enumerate}[label={[V\arabic*]}]
+    \item \label{ese_mdpi} VRBA, Jan; MAREŠ, Jan. Introduction to Extreme Seeking Entropy. \textit{Entropy}, 2020, 22.1: 93.
+  	\item \label{appel2}VRBA, Jan; MAREŠ, Jan. Computational Performance of the Parameters Estimation in Extreme Seeking Entropy Algorithm. In: \textit{2020 International Conference on Applied Electronics (AE)}. IEEE, 2020. p. 1-4.
+	\item \label{appel3}VRBA, Jan; MAREŠ, Jan. ROC Analysis of Extreme Seeking Entropy for Trend Change Detection. In: \textit{2020 International Conference on Applied Electronics (AE)}. IEEE, 2020. p. 1-4.  
+	\item \label{artep}VRBA, Jan. Využití fuzzy systémů a algoritmu learning entropy pro detekci změn stavů bioprocesu. In: \textit{Automatizacia a riadenie v teorii a praxi ARTEP 2017}. Technická univerzita Košice, 2017.
+
+	\item \label{asr} VRBA, Jan. \textit{XLIII. Seminář ASŘ - Adaptivní metoda detekce} [přednáška]. Ostrava: VŠB TU Ostrava, 27.4.2018.
+    \item \label{appel1}VRBA, Jan. Adaptive Novelty Detection with Generalized Extreme Value Distribution. In: \textit{2018 International Conference on Applied Electronics (AE)}. IEEE, 2018. p. 1-4.
+    \item \label{ijcnn}BUKOVSKÝ, Ivo, et al. Study of learning entropy for onset detection of epileptic seizures in EEG time series. In: \textit{2016 International Joint Conference on Neural Networks (IJCNN)}. IEEE, 2016. p. 3302-3305.
+
+    
+    \item \label{cyril}OSWALD, Cyril, et al. Novelty Detection in System Monitoring and Control with HONU. In: \textit{Applied Artificial Higher Order Neural Networks for Control and Recognition}. IGI Global, 2016. p. 61-78.
+
+
+	\item \label{roboti}VRBA, Jan, et al. An Automated Platform for Microrobot Manipulation. In: \textit{International Workshop on Soft Computing Models in Industrial and Environmental Applications}. Springer, Cham, 2020. p. 255-265.
+	\item \label{bila1}BÍLA, Jiří; VRBA, Jan. The Detection and Interpretation of Emergent Situations in ECG Signals. In: \textit{International Conference on Soft Computing-MENDEL}. Springer, Cham, 2016. p. 264-275.
+
+	\item \label{ijcnn3}MOJZES, Matej, et al. Feature selection via competitive levy flights. In: \textit{2016 International Joint Conference on Neural Networks (IJCNN)}. IEEE, 2016. p. 3731-3736.
+	
+	\item \label{bila2}BÍLA, Jiří; NOVÁK, Martin; VRBA, Jan. Detection of emergent situations in complex systems represented by algebras of transformations. In: \textit{MATEC Web of Conferences}. EDP Sciences, 2016. p. 02035.	
+	\item \label{artep2}BUKOVSKÝ, Ivo, OSWALD, Cyril, VRBA, Jan. Případová studie použití entropie učení pro adaptivní detekci při řízení spalování tuhých paliv. In: \textit{Automatizácia a riadenie v teórii a praxi 2015}. Technická univerzita Košice, 2015.
+\end{enumerate}
+
+\renewcommand{\bibname}{Literatura relevantní k tezím}
+\begin{thebibliography}{L}
+\bibitem{expo}SHARMA, Anish and ANDREWS, Rebecca. Managing-Exponential-Data-Growth-and-Application-Modernization. \textit{IBM} [online]. 11 November 1999. [cit. 11.8.2020]. Dostupné z: https://www.ibm.com/cloud/blog/managing-exponential-data-growth-and-application-modernization 
+\bibitem{ivoLE1}BUKOVSKY, Ivo. Learning entropy: Multiscale measure for incremental learning. \textit{Entropy}, 2013, 15.10: 4159-4187.
+\bibitem{ivoLE2}BUKOVSKY, Ivo; KINSNER, Witold; HOMMA, Noriyasu. Learning Entropy as a Learning-Based Information Concept. \textit{Entropy}, 2019, 21.2: 166.
+\bibitem{elbnd1}CEJNEK, Matous; BUKOVSKY, Ivo. Concept drift robust adaptive novelty detection for data streams. \textit{Neurocomputing}, 2018, 309: 46-53.
+\bibitem{elbnd2} CEJNEK, Matous; BUKOVSKY, Ivo. Influence of type and level of noise on the performance of an adaptive novelty detector. In: \textit{2017 IEEE 16th International Conference on Cognitive Informatics \& Cognitive Computing (ICCI* CC)}. IEEE, 2017. p. 373-377.
+\bibitem{elbnd3}CEJNEK, Matous; BUKOVSKY, Ivo; VYSATA, Oldrich. Adaptive classification of EEG for dementia diagnosis. In: \textit{2015 International Workshop on Computational Intelligence for Multimedia Understanding (IWCIM)}. IEEE, 2015. p. 1-5.
+\bibitem{mackey}MACKEY, Michael C.; GLASS, Leon. Oscillation and chaos in physiological control systems. \textit{Science}, 1977, 197.4300: 287-289.
+\bibitem{dead}SPANGENBERG, Mariana, et al. Detection of variance changes and mean value jumps in measurement noise for multipath mitigation in urban navigation. \textit{Navigation}, 2010, 57.1: 35-52.
+\bibitem{stepchange}L'ECUYER, Pierre. History of uniform random number generation. In: \textit{2017 Winter Simulation Conference (WSC)}. IEEE, 2017. p. 202-230.
+\bibitem{diagnosis}MAURYA, Mano Ram; RENGASWAMY, Raghunathan; VENKATASUBRAMANIAN, Venkat. Fault diagnosis using dynamic trend analysis: A review and recent developments. \textit{Engineering Applications of artificial intelligence}, 2007, 20.2: 133-146.
+\bibitem{roc_orig}EGAN, James P. \textit{Signal detection theory and ROC-analysis}. Academic press, 1975.
+\bibitem{roc_bible}FAWCETT, Tom. An introduction to ROC analysis. \textit{Pattern recognition letters}, 2006, 27.8: 861-874.
+\bibitem{fault}GERTLER, Janos. \textit{Fault detection and diagnosis in engineering systems}. CRC press, 1998.
+\bibitem{data_streams}YU, Kangqing, et al. Real-time Outlier Detection over Streaming Data. In: \textit{2019 IEEE SmartWorld, Ubiquitous Intelligence \& Computing, Advanced \& Trusted Computing, Scalable Computing \& Communications, Cloud \& Big Data Computing, Internet of People and Smart City Innovation (SmartWorld/SCALCOM/UIC/ATC/CBDCom/IOP/SCI)}. IEEE, 2019. p. 125-132.
+\bibitem{surveilance}
+RAMEZANI, Ramin; ANGELOV, Plamen; ZHOU, Xiaowei. A fast approach to novelty detection in video streams using recursive density estimation. In: \textit{2008 4th International IEEE Conference Intelligent Systems. IEEE, 2008}. p. 14-2-14-7.
+\bibitem{robotics_marslan}
+MARSLAND, Stephen; NEHMZOW, Ulrich; SHAPIRO, Jonathan. On-line novelty detection for autonomous mobile robots. \textit{Robotics and Autonomous Systems}, 2005, 51.2-3: 191-206.
+\bibitem{robotics}
+NEHMZOW, Ulrich, et al. Novelty detection as an intrinsic motivation for cumulative learning robots. In: \textit{Intrinsically Motivated Learning in Natural and Artificial Systems}. Springer, Berlin, Heidelberg, 2013. p. 185-207.
+\bibitem{python}VAN ROSUM, G.; DRAKE, F. L. \textit{Python 3 Reference Manual}. Scotts Valley, CA: CreateSpace, 2009.
+\bibitem{numpy}OLIPHANT, Travis E. \textit{A guide to NumPy (Vol. 1)}. Trelgol Publishing USA, 2006.
+\bibitem{scipy}VIRTANEN, P. et al.  SciPy 1.0: Fundamental Algorithms for Scientific Computing in Python. \textit{Nature Methods}, 2020, 17(3), 261-272.
+\end{thebibliography}
+
+\end{document}
